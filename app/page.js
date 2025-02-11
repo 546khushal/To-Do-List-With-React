@@ -51,12 +51,14 @@ const Page = () => {
   if (mainTask.length > 0) {
     renderTask = mainTask.map((t, i) => {
       return (
-        <li key={i} className="flex items-center justify-between mb-5 bg-white p-4 rounded-lg shadow-md">
-          <div className="flex-1">
+        <li key={i} className="flex flex-col sm:flex-row items-center justify-between mb-5 bg-white p-4 rounded-lg shadow-md">
+          <div className="flex-1 w-full sm:w-auto">
             <h5 className="text-xl font-semibold text-gray-800">{t.title}</h5>
-            <h6 className="text-lg text-gray-600">{t.desc}</h6>
+            <h6 className="text-lg text-gray-600 break-words overflow-hidden">
+              {t.desc}
+            </h6>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 mt-4 sm:mt-0">
             <button
               onClick={() => editHandler(i)}
               className="bg-blue-500 rounded font-bold text-white px-4 py-2 hover:bg-blue-600 transition-all"
